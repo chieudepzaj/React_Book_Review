@@ -24,6 +24,7 @@ ReactDOM.render(
       <Route path="/auth" component={Auth} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
+      <Route path="/index" exact component={Index} />
       <Route path="/profile" exact component={Profile} />
       <Route path="/" exact component={Landing} />
       {/* add redirect for first page */}
