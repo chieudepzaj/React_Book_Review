@@ -10,6 +10,9 @@ import BookImg6 from "../../assets/books/book6.png";
 import BookImg7 from "../../assets/books/book7.png";
 import BookImg8 from "../../assets/books/book8.png";
 import BookImg9 from "../../assets/books/book9.png";
+import BookImg11 from "../../assets/books/book11.png";
+import BookImg12 from "../../assets/books/book12.png";
+import BookImg13 from "../../assets/books/book13.png";
 
 const DUMMY_BOOKLISTS = [
   {
@@ -78,21 +81,51 @@ Tí cùng Sửu, Dần và Cả Mẹo cũng đã có công lớn trong việc ph
     desciption: `หนังสือเล่มนี้เกิดขึ้นจากความสนใจประวัติศาสตร์การปฏิวัติ 2475 และขบวนการปฏิปักษ์ปฏิวัติของผู้เขียนรวมถึงการที่ผู้เขียนมีโอกาสฝึกฝนและศึกษาหาความรู้เพิ่มเติมภายใต้บรรยากาศการ "เกิดใหม่" ของคณะราษฎรภายหลังการรัฐประการ 19 กันยายน 2549 โดยเฉพาะบทบาททางการเมืองของจอมพล ป.พิบูลสงคราม`,
     score: 4.71,
   },
+  {
+    title: "Business @ the Speed of Thought: Succeeding in the Digital Economy",
+    author: "Bill Gates",
+    bookImg: BookImg11,
+    desciption: `หนังสือเล่มนี้เกิดขึ้นจากความสนใจประวัติศาสตร์การปฏิวัติ 2475 และขบวนการปฏิปักษ์ปฏิวัติของผู้เขียนรวมถึงการที่ผู้เขียนมีโอกาสฝึกฝนและศึกษาหาความรู้เพิ่มเติมภายใต้บรรยากาศการ "เกิดใหม่" ของคณะราษฎรภายหลังการรัฐประการ 19 กันยายน 2549 โดยเฉพาะบทบาททางการเมืองของจอมพล ป.พิบูลสงคราม`,
+    score: 3.83,
+  },
+  {
+    title: "Thinking, Fast and Slow",
+    author: "Daniel Kahneman",
+    bookImg: BookImg12,
+    desciption: `หนังสือเล่มนี้เกิดขึ้นจากความสนใจประวัติศาสตร์การปฏิวัติ 2475 และขบวนการปฏิปักษ์ปฏิวัติของผู้เขียนรวมถึงการที่ผู้เขียนมีโอกาสฝึกฝนและศึกษาหาความรู้เพิ่มเติมภายใต้บรรยากาศการ "เกิดใหม่" ของคณะราษฎรภายหลังการรัฐประการ 19 กันยายน 2549 โดยเฉพาะบทบาททางการเมืองของจอมพล ป.พิบูลสงคราม`,
+    score: 4.16,
+  },
+  {
+    title: "Teach Yourself To Think",
+    author: "Edward de Bono",
+    bookImg: BookImg13,
+    desciption: `หนังสือเล่มนี้เกิดขึ้นจากความสนใจประวัติศาสตร์การปฏิวัติ 2475 และขบวนการปฏิปักษ์ปฏิวัติของผู้เขียนรวมถึงการที่ผู้เขียนมีโอกาสฝึกฝนและศึกษาหาความรู้เพิ่มเติมภายใต้บรรยากาศการ "เกิดใหม่" ของคณะราษฎรภายหลังการรัฐประการ 19 กันยายน 2549 โดยเฉพาะบทบาททางการเมืองของจอมพล ป.พิบูลสงคราม`,
+    score: 3.67,
+  },
+
 ];
 
 const BooksPreview = (props) => {
-  const createBookLists = DUMMY_BOOKLISTS.map((book) => (
-    <Book
-      key={Math.random().toString()}
-      title={book.title}
-      author={book.author}
-      bookImg={book.bookImg}
-      //   desciption={book.desciption}
-      score={book.score}
-    />
-  ));
+  const createBookLists = DUMMY_BOOKLISTS.filter((book) => book.score > 4)
+    .slice(0, 6)
+    .sort((a, b) => b.score - a.score)
+    .map((book) => (
+      <Book
+        key={Math.random().toString()}
+        title={book.title}
+        author={book.author}
+        bookImg={book.bookImg}
+        score={book.score}
+      />
+    ));
 
-  return <Fragment>{createBookLists}</Fragment>;
+  return (
+    <Fragment>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap">{createBookLists}</div>
+      </div>
+    </Fragment>
+  );
 };
 
 export default BooksPreview;

@@ -36,7 +36,7 @@ const PagesDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
-    
+          style={{ marginTop: "0.5rem" }}
         
         <span
           className={
@@ -104,6 +104,30 @@ const PagesDropdown = () => {
           }
         >
           Register
+        </Link>
+        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
+        <span
+          className={
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+          }
+        >
+          Profile
+        </span>
+        <Link
+          to="/profile/tonyw"
+          className={
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          }
+        >
+          Tony W.
+        </Link>
+        <Link
+          to="/profile/Thanathorn_FWP"
+          className={
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          }
+        >
+          Tony Woodsome
         </Link>
       </div>
     </>
