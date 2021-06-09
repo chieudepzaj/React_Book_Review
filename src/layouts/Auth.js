@@ -11,7 +11,7 @@ import FooterSmall from "components/Footers/FooterSmall.js";
 import Login from "views/auth/Login.js";
 import Register from "views/auth/Register.js";
 
-export default function Auth() {
+function Auth() {
   return (
     <>
       <Navbar transparent />
@@ -35,3 +35,5 @@ export default function Auth() {
     </>
   );
 }
+
+export default Auth;
