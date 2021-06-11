@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
-
+import AuthContext from "../../store/auth-context";
+import AuthLayout from "./components/AuthLayout";
+import ProfileLayout from "./components/ProfileLayout";
 const PagesDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
@@ -16,6 +18,7 @@ const PagesDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+  const ctx = useContext(AuthContext);
   return (
     <>
       <a
@@ -81,54 +84,8 @@ const PagesDropdown = () => {
         >
           All Genres
         </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-          }
-        >
-          Auth Layout
-        </span>
-        <Link
-          to="/auth/login"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-        >
-          Login
-        </Link>
-        <Link
-          to="/auth/register"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-        >
-          Register
-        </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-          }
-        >
-          Profile
-        </span>
-        <Link
-          to="/profile/tonyw"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-        >
-          Tony W.
-        </Link>
-        <Link
-          to="/profile/Thanathorn_FWP"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-        >
-          Tony Woodsome
-        </Link>
+        {!ctx.isLoggedIn && <AuthLayout />}
+        {ctx.isLoggedIn && <ProfileLayout currentUser={ctx.currentUser} />}
       </div>
     </>
   );
