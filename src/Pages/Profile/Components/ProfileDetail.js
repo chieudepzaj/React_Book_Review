@@ -3,7 +3,8 @@ import { Fragment } from "react";
 
 
 const ProfileDetail = (props) => {
-const { profileImg, name, city, detail, username } = props.profile;
+  const { userProfile, name, userLocation, userDetail, username } =
+  props.profile;
 
   return (
     <Fragment>
@@ -12,7 +13,7 @@ const { profileImg, name, city, detail, username } = props.profile;
           <div className="relative">
             <img
               alt="..."
-              src={profileImg}
+              src={userProfile}
               className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
             />
          </div>
@@ -47,14 +48,14 @@ const { profileImg, name, city, detail, username } = props.profile;
         </div>
         <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
           <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-          {city}
+          {userLocation}
         </div>
         <div className="flex flex-wrap justify-center">
           <p
             className="mb-4 text-lg leading-relaxed text-blueGray-700 break-words"
             style={{ paddingLeft: "10rem", paddingRight: "10rem" }}
           >
-            {detail}
+           {userDetail}
           </p>
         </div>
       </div>

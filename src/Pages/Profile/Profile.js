@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import useHttp from "../../hooks/use-http";
+import { getProfile } from "../../lib/api";
 import ProfileDetail from "./components/ProfileDetail";
 import BooksList from "./components/BooksList";
-
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const DUMMY_PROFILE = [
   {
     profileImg:
@@ -27,13 +28,40 @@ const DUMMY_PROFILE = [
 const Profile = (props) => {
   const params = useParams();
 
-  const profileData = DUMMY_PROFILE.find(
-    (dummy) => dummy.username === params.username
-  );
+  const { username } = params;
 
-  const firstName = profileData.name.substring(
+  const {
+    sendRequest,
+    status,
+    data: loadedProfile,
+    error,
+  } = useHttp(getProfile, true);
+  console.log(loadedProfile);
+
+  useEffect(() => {
+    sendRequest(username);
+  }, [sendRequest, username]);
+
+  if (status === "pending") {
+    console.log(loadedProfile);
+    return (
+      <div
+        style={{
+          margin: "3rem auto",
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  const firstName = loadedProfile.name.substring(
     0,
-    profileData.name.indexOf(" ")
+    loadedProfile.name.indexOf(" ")
   );
 
   return (
@@ -76,7 +104,7 @@ const Profile = (props) => {
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
               <div className="px-6"></div>
-              <ProfileDetail profile={profileData} />;
+              <ProfileDetail profile={loadedProfile} />;
               <div className="mt-10 py-10 border-t border-blueGray-200">
                 <h3
                   className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
