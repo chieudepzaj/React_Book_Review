@@ -62,16 +62,33 @@ const RegisterDetails = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const userData = {
-      username: user,
-      email: email,
-      name: enteredName,
-      userLocation: enteredLocation,
-      userDetail: enteredDetails,
-      userProfile: profile,
-    };
-    sendRequest(userData);
-    app.auth().createUserWithEmailAndPassword(email, pass);
+    if (user)
+      app
+        .auth()
+        .createUserWithEmailAndPassword(email, pass)
+        .then(async (userCredential) => {
+          console.log("Successfully created new user:");
+          await userCredential.user.updateProfile({
+            displayName: user,
+            photoURL: profile,
+          });
+          console.log(userCredential.user.displayName);
+          const userData = {
+            username: user,
+            email: email,
+            name: enteredName,
+            userLocation: enteredLocation,
+            userDetail: enteredDetails,
+            userProfile: profile,
+            uid: userCredential.user.uid,
+          };
+          sendRequest(userData);
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
   };
 
   return (

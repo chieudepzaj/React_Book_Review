@@ -5,25 +5,7 @@ import { getProfile } from "../../lib/api";
 import ProfileDetail from "./components/ProfileDetail";
 import BooksList from "./components/BooksList";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-const DUMMY_PROFILE = [
-  {
-    profileImg:
-      "https://firebasestorage.googleapis.com/v0/b/arn-rai-dee.appspot.com/o/author_img%2Ftony.jpg?alt=media&token=1ec4d8c4-0873-4524-b52e-6a8ed7bb02b7",
-    name: "Tony Woodsome",
-    city: "Dubai, the United Arab Emirates",
-    detail: "The 23rd Prime Minister of Thailand (In office 2001 - 2006)",
-    username: "tonyw",
-  },
-  {
-    profileImg:
-      "https://firebasestorage.googleapis.com/v0/b/arn-rai-dee.appspot.com/o/user_img%2FTJ.jpg?alt=media&token=10581eb0-fe4c-453c-b62a-3e4b84d8dec7",
-    name: "Thanathorn Juangroongruangkit",
-    city: "Bangkok, Thailand",
-    detail:
-      "Leader of Progressive Movement, Former Leader of Future Forward Party. An adventurer - all in for pushing physical & mental strength.",
-    username: "Thanathorn_FWP",
-  },
-];
+import classes from "./Profile.module.css";
 
 const Profile = (props) => {
   const params = useParams();
@@ -36,14 +18,14 @@ const Profile = (props) => {
     data: loadedProfile,
     error,
   } = useHttp(getProfile, true);
-  console.log(loadedProfile);
+  
 
   useEffect(() => {
-    sendRequest(username);
+    sendRequest(username.toLowerCase());
   }, [sendRequest, username]);
 
   if (status === "pending") {
-    console.log(loadedProfile);
+    
     return (
       <div
         style={{
@@ -59,10 +41,24 @@ const Profile = (props) => {
     );
   }
 
-  const firstName = loadedProfile.name.substring(
-    0,
-    loadedProfile.name.indexOf(" ")
-  );
+  let content = "";
+
+  if (error) {
+    content = <p className={classes.centered}>{error}</p>;
+  }
+
+  if (!loadedProfile.name) {
+    content = <p className={classes.centered}>No username found!</p>;
+  }
+
+  let firstName = "";
+
+  if (loadedProfile.name) {
+    firstName = loadedProfile.name.substring(
+      0,
+      loadedProfile.name.indexOf(" ")
+    );
+  }
 
   return (
     <Fragment>
@@ -104,17 +100,21 @@ const Profile = (props) => {
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
               <div className="px-6"></div>
-              <ProfileDetail profile={loadedProfile} />;
+              {firstName ? <ProfileDetail profile={loadedProfile} /> : content}
               <div className="mt-10 py-10 border-t border-blueGray-200">
                 <h3
                   className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
                   style={{ marginLeft: "2rem" }}
                 >
-                  {`${firstName}'s Rated Book`}
+                  {firstName ? `${firstName}'s Rated Book` : null}
                 </h3>
 
                 <div className="flex flex-wrap justify-center">
-                  <BooksList />
+                  {firstName ? (
+                    <BooksList />
+                  ) : (
+                    <div style={{ height: "60.1vh" }}></div>
+                  )}
                 </div>
               </div>
             </div>
