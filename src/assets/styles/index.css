@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer utilities {
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
+}

@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
+
 import AuthContext from "../../store/auth-context";
 import AuthLayout from "./components/AuthLayout";
 import ProfileLayout from "./components/ProfileLayout";
+import AdminLayout from "./components/AdminLayout";
+
 const PagesDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
@@ -18,7 +21,9 @@ const PagesDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
   const ctx = useContext(AuthContext);
+
   return (
     <>
       <a
@@ -30,7 +35,7 @@ const PagesDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Browse
+        Tùy chọn
       </a>
       <div
         ref={popoverDropdownRef}
@@ -38,52 +43,52 @@ const PagesDropdown = () => {
           (dropdownPopoverShow ? "block " : "hidden ") +
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
+        style={{ marginTop: "0.5rem" }}
       >
-          style={{ marginTop: "0.5rem" }}
-        
         <span
           className={
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Genres
+          Thể loại
         </span>
         <Link
-          to="/landing"
+          to="/genre/Tiểu sử"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Biography
+          Tiểu sử
         </Link>
         <Link
-          to="/profile"
+          to="/genre/Tiểu thuyết"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Business
+          Tiểu thuyết
         </Link>
         <Link
-          to="/profile"
+          to="/genre/Lịch sử"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          History
+          Lịch sử
         </Link>
         <Link
-          to="/profile"
+          to="/genre/Khoa học viễn tưởng"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Nonfiction
+          Khoa học viễn tưởng
         </Link>
         <Link
-          to="/profile"
+          to="/genre/Viễn tưởng"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Poetry
+          Viễn tưởng
         </Link>
         <Link
-          to="/profile"
+          to="/genre/"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          All Genres
+          Tất cả các thể loại
         </Link>
+        {ctx.currentUser === "admin" && <AdminLayout />}
         {!ctx.isLoggedIn && <AuthLayout />}
         {ctx.isLoggedIn && <ProfileLayout currentUser={ctx.currentUser} />}
       </div>

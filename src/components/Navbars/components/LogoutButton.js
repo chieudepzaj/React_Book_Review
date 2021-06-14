@@ -9,16 +9,17 @@ const LoginButton = () => {
   const history = useHistory();
 
   const logoutHandler = () => {
-    app
-      .auth()
-      .signOut()
-      .then(() => {
-        ctx.onLogout();
-        history.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    window.confirm("Are you sure you want to log out") &&
+      app
+        .auth()
+        .signOut()
+        .then(() => {
+          ctx.onLogout();
+          history.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
   return (
     <button

@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 
-import Navbar from "../components/Navbars/AuthNavbar";
+import AuthNavbar from "../components/Navbars/AuthNavbar";
 
 const Layout = (props) => {
   return (
     <Fragment>
-      <Navbar transparent />
+      <AuthNavbar transparent />
       {props.children}
     </Fragment>
   );

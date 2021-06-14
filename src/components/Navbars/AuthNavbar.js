@@ -1,15 +1,19 @@
 /*eslint-disable*/
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+
 // components
 
 import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import Modal from "components/Modal/Modal";
+
 const Navbar = (props) => {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const ctx = useContext(AuthContext);
+
   return (
     <>
       <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
@@ -19,7 +23,7 @@ const Navbar = (props) => {
               className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
               to="/"
             >
-              HOME
+              Home
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -29,20 +33,20 @@ const Navbar = (props) => {
               <i className="text-white fas fa-bars"></i>
             </button>
           </div>
+
           <div
             className={
               "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
               (navbarOpen ? " block rounded shadow-lg" : " hidden")
             }
-            id="example-navbar-warning"
           >
-            
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-                <PagesDropdown />
+                <PagesDropdown
+                  open={navbarOpen}
+                  onClose={() => setNavbarOpen(!navbarOpen)}
+                />
               </li>
-              
-
               <li className="flex items-center">
                 {!ctx.isLoggedIn && <LoginButton />}
                 {ctx.isLoggedIn && <LogoutButton />}
@@ -53,7 +57,6 @@ const Navbar = (props) => {
       </nav>
     </>
   );
-}
 };
 
 export default Navbar;
