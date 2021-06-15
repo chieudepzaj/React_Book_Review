@@ -82,7 +82,7 @@ const RegisterDetails = (props) => {
             uid: userCredential.user.uid,
           };
           sendRequest(userData);
-          alert("Successfully created new user");
+          alert("Tạo Tài Khoản Thành Công ^");
         })
         .catch((error) => {
           var errorCode = error.code;
@@ -111,7 +111,7 @@ const RegisterDetails = (props) => {
                   <UploadButton imgUpload={imgUploadHandler} />
                   <div className="relative w-full mb-3 my-2">
                     <label className={nameInputClasses} htmlFor="grid-password">
-                      Name
+                      Tên
                     </label>
                     <input
                       type="text"
@@ -120,7 +120,7 @@ const RegisterDetails = (props) => {
                       value={enteredName}
                       onChange={nameChangeHandler}
                       onBlur={nameBlurHandler}
-                      placeholder="Your name"
+                      placeholder="Họ tên"
                     />
                   </div>
 
@@ -129,7 +129,7 @@ const RegisterDetails = (props) => {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Location
+                      Quốc gia
                     </label>
                     <input
                       type="text"
@@ -137,7 +137,7 @@ const RegisterDetails = (props) => {
                       id="location"
                       value={enteredLocation}
                       onChange={LocationChangeHandler}
-                      placeholder="Location"
+                      placeholder="Việt Nam, Nhật Bản, ..."
                     />
                   </div>
 
@@ -146,7 +146,7 @@ const RegisterDetails = (props) => {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      About you
+                      Giới thiệu
                     </label>
                     <input
                       type="text"
@@ -155,7 +155,7 @@ const RegisterDetails = (props) => {
                       id="details"
                       value={enteredDetails}
                       onChange={detailsChangeHandler}
-                      placeholder="favorite subjects, or really anything you know a lot about"
+                      placeholder="Sở thích, thông tin hữu ích về bạn"
                     />
                   </div>
 
@@ -165,7 +165,7 @@ const RegisterDetails = (props) => {
                       type="submit"
                       disabled={!formIsValid}
                     >
-                      Create Account
+                      Tạo Tài Khoản
                     </button>
                   </div>
                 </form>

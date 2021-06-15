@@ -109,7 +109,7 @@ const AddComment = (props) => {
               type="submit"
               disabled={!formIsValid}
             >
-              Comment
+              Bình luận
             </button>
           </div>
         </div>

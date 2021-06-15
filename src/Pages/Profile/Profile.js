@@ -108,20 +108,6 @@ const Profile = (props) => {
                 content
               )}
               <div className="mt-10 py-10">
-                {/* <h3
-                  className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
-                  style={{ marginLeft: "2rem" }}
-                >
-                  {!content && `${username}'s Rated Book`}
-                </h3>
-
-                <div className="flex flex-wrap justify-center">
-                  {!content ? (
-                    <BooksList />
-                  ) : (
-                    <div style={{ height: "60.1vh" }}></div>
-                  )}
-                </div> */}
               </div>
             </div>
           </div>

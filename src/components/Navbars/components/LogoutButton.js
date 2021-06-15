@@ -9,7 +9,7 @@ const LoginButton = () => {
   const history = useHistory();
 
   const logoutHandler = () => {
-    window.confirm("Are you sure you want to log out") &&
+    window.confirm("Bạn có chắc chắn bạn muốn đăng xuất ?") &&
       app
         .auth()
         .signOut()
@@ -27,7 +27,7 @@ const LoginButton = () => {
       type="button"
       onClick={logoutHandler}
     >
-      <i className="fas fa-sign-out-alt"></i> Logout
+      <i className="fas fa-sign-out-alt"></i> Đăng xuất
     </button>
   );
 };

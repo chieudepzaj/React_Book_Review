@@ -23,7 +23,7 @@ const Detail = (props) => {
     history.push(`/editBook/${props.book.bookId}`);
   };
   const deleteBookHandler = () => {
-    window.confirm("Are you sure you wish to delete this book?") &&
+    window.confirm("Bạn có muốn xóa cuốn sách này không?") &&
       sendRequest(props.book.bookId);
   };
 
@@ -51,41 +51,18 @@ const Detail = (props) => {
                 type="button"
                 onClick={editBookHandler}
               >
-                EDIT
+                Chỉnh sửa
               </button>
               <button
                 className="bg-red-500 active:bg-lightBlue-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={deleteBookHandler}
               >
-                DELETE
+                Xóa sách
               </button>
             </div>
           )}
-          {/* <form onSubmit={submitHandler}>
-            <div className="py-6 mx-auto mt-32 sm:mt-0 ">
-              <input
-                // value={enteredScore}
-                type="number"
-                maxLength="1"
-                min="1"
-                max="5"
-                className="placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow mr-2 text-center"
-                style={{ width: "80px" }}
-                placeholder="Score"
-                // onChange={scoreChangeHandler}
-              />
-              <button
-                className="input-group-text fas fa-star mx-auto"
-                id="basic-addon1"
-                style={{ color: "salmon" }}
-                type="submit"
-              >
-                {" "}
-                Rate
-              </button>
-            </div>
-          </form> */}
+         
         </div>
         <div className="w-full lg:w-4/12 px-4 lg:order-1">
           <div className="flex justify-center py-10 lg:pt-4 pt-8">
@@ -93,7 +70,9 @@ const Detail = (props) => {
               {/* <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                 {props.book.score}
               </span>
-              <span className="text-sm text-blueGray-400">Book Score</span> */}
+              <span className="text-sm text-blueGray-400">
+              Book Score
+              </span> */}
             </div>
           </div>
         </div>

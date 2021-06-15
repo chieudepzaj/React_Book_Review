@@ -36,12 +36,12 @@ const Login = () => {
       .signInWithEmailAndPassword(enteredEmail, enteredPassword)
       .then((userCredetial) => {
         authCtx.onLogin(userCredetial.user.displayName);
-        alert(`May the books be with you - ${userCredetial.user.displayName}`);
+        alert(`Chào mừng bạn đến với review sách - Hi ${userCredetial.user.displayName} <3`);
         history.push("/");
       })
       .catch((error) => {
         console.log(error.message);
-        alert("Email or password is incorrect");
+        alert("Email hoặc password không chính xác !");
       });
   };
 
@@ -89,7 +89,7 @@ const Login = () => {
               </div> }
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mt-6">
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
-                  <h1>Sign in</h1>
+                  <h1>Đăng Nhập</h1>
                 </div>
                 <form onSubmit={submitHandler}>
                   <div className="relative w-full mb-3">
@@ -112,7 +112,7 @@ const Login = () => {
 
                   <div className="relative w-full mb-3">
                     <label className={passInputClasses} htmlFor="grid-password">
-                      Password
+                      Mật Khẩu
                     </label>
                     <input
                       type="password"
@@ -121,7 +121,7 @@ const Login = () => {
                       value={enteredPassword}
                       onChange={passChangeHandler}
                       onBlur={passBlurHandler}
-                      placeholder="Password"
+                      placeholder="Mật Khẩu"
                     />
                   </div>
 
@@ -131,7 +131,7 @@ const Login = () => {
                       type="submit"
                       disabled={!formIsValid}
                     >
-                      Sign In
+                      Đăng Nhập
                     </button>
                   </div>
                 </form>
@@ -144,12 +144,12 @@ const Login = () => {
                   onClick={(e) => e.preventDefault()}
                   className="text-blueGray-200"
                 >
-                  <small>Forgot password?</small>
+                  <small>Quên mật khẩu?</small>
                 </a> }
               </div>
               <div className="w-1/2 text-right">
                 <Link to="/auth/register" className="text-blueGray-200">
-                  <small>Create new account</small>
+                  <small>Tạo tài khoản mới</small>
                 </Link>
               </div>
             </div>

@@ -57,7 +57,7 @@ export default function Navbar(props) {
                   <i className="text-blueGray-400 fab fa-facebook text-lg leading-lg " />
                   <span className="lg:hidden inline-block ml-2">Share</span>
                 </a>
-              </li> */}
+              </li> }
 
               { <li className="flex items-center">
                 <a

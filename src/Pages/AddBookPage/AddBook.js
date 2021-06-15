@@ -30,7 +30,7 @@ export default function Addbook() {
           <div className="items-center flex flex-wrap">
             <div className="w-full lg:w-10/12 px-4 ml-auto mr-auto text-center">
               <h1 className="text-white font-semibold text-4xl pt-32">
-                What about this Book?
+                Thêm sách 
               </h1>
             </div>
           </div>

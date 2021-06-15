@@ -42,7 +42,7 @@ const BookDetail = (props) => {
   }
 
   if (!loadedBook.bookId) {
-    return <p>No book found!</p>;
+    return <p>Không tìm thấy sách!</p>;
   }
 
   return (

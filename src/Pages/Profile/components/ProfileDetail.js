@@ -18,7 +18,7 @@ const ProfileDetail = (props) => {
   }, [status, history]);
 
   const deleteUserHandler = (props) => {
-    window.confirm("Are you sure you wish to delete this user?") &&
+    window.confirm("Bạn có muốn xóa người dùng này?") &&
       sendRequest(username);
   };
   const editUserHandler = (props) => {
@@ -45,7 +45,7 @@ const ProfileDetail = (props) => {
                 type="button"
                 onClick={deleteUserHandler}
               >
-                DELETE
+                Xóa tài khoản
               </button>
             )}
             {props.ownProfile && (
@@ -54,7 +54,7 @@ const ProfileDetail = (props) => {
                 type="button"
                 onClick={editUserHandler}
               >
-                EDIT
+                Chỉnh sửa
               </button>
             )}
           </div>

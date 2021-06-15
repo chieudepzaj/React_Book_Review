@@ -26,7 +26,7 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem("currentUser");
     setIsLoggedIn(false);
     setCurrentUser("");
-    console.log("Logout success!");
+    console.log("Đăng xuất thành công!");
   };
 
   const loginHandler = (currentUser) => {

@@ -14,7 +14,7 @@ const AddFrom = () => {
   const history = useHistory();
 
   const [bookImage, setBookImage] = useState(
-    "https://firebasestorage.googleapis.com/v0/b/arn-rai-dee.appspot.com/o/book_img%2Fbook.jpg?alt=media&token=a10fcc24-fc0a-4e7e-96ae-f8cada52f055"
+    "https://firebasestorage.googleapis.com/v0/b/book-reviews-a9b02.appspot.com/o/book_img%2Ffaverate-b%C3%B4k.png?alt=media&token=629e8836-218c-4e6b-bf6d-45feeb54ba64"
   );
 
   const {
@@ -119,7 +119,7 @@ const AddFrom = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={genresChangeHandler}
-                      placeholder="Genre (Example: Fiction)"
+                      placeholder="Thể loại (Ví dụ: Viễn tưởng)"
                     />
                   </div>
                   <br></br>
@@ -130,7 +130,7 @@ const AddFrom = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={titleChangeHandler}
-                      placeholder="Title (Example: The Alchemist)"
+                      placeholder="Tên sách (Ví dụ: Đắc nhân tâm)"
                     />
                   </div>
                   <br></br>
@@ -142,7 +142,7 @@ const AddFrom = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={bookidChangeHandler}
-                      placeholder="ISBN (Example: 9786160451692)"
+                      placeholder="ID Sách (Ví dụ: 01234)"
                     />
                   </div>
                   <br></br>
@@ -154,7 +154,7 @@ const AddFrom = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={authorChangeHandler}
-                      placeholder="Author (Example: Paulo Coelho)"
+                      placeholder="Tác giả (Ví dụ: Nguyễn Du)"
                     />
                   </div>
                   <br></br>
@@ -167,7 +167,7 @@ const AddFrom = () => {
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 row-5"
                       style={{ height: "150px" }}
                       onChange={descriptionChangeHandler}
-                      placeholder="Description"
+                      placeholder="Miêu tả về sách"
                     ></textarea>
                   </div>
 
@@ -180,7 +180,7 @@ const AddFrom = () => {
                       type="number"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={pagesChangeHandler}
-                      placeholder="Pages (Example : 160)"
+                      placeholder="Số trang (Ví dụ : 160)"
                     />
                   </div>
                   <br></br>
@@ -192,7 +192,7 @@ const AddFrom = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       onChange={publishChangeHandler}
-                      placeholder="Publish (Example: NANMEE BOOKS)"
+                      placeholder="Nhà xuất bản (Ví dụ: Kim Đồng)"
                     />
                   </div>
                   <br></br>
@@ -204,7 +204,7 @@ const AddFrom = () => {
                       type="submit"
                       disabled={!formIsValid}
                     >
-                      Submit
+                      Thêm sách
                     </button>
                   </div>
                 </form>
