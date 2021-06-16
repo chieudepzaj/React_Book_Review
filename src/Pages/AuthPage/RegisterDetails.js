@@ -129,7 +129,7 @@ const RegisterDetails = (props) => {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Quốc gia
+                      Địa chỉ
                     </label>
                     <input
                       type="text"
